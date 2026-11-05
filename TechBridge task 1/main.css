@@ -1,0 +1,924 @@
+/* Keep @import as the very first rule or browsers ignore it */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+/* =====================================================
+   DESIGN TOKENS
+===================================================== */
+:root {
+    /* Navy family (hero, spotlight banner, footer) */
+    --navy-950: #030f2c;
+    --navy-900: #061a45;
+    --navy-800: #0a2a66;
+
+    /* Text */
+    --ink: #0b1b3f;
+    --ink-soft: #3d4f78;
+
+    /* Accents */
+    --blue: #1a5fe0;
+    --indigo: #4b3fe0;
+    --amber: #ff9410;
+    --amber-deep: #f58300;
+
+    /* Surfaces */
+    --surface: #f8faff;
+    --panel: #eef3fc;
+    --panel-edge: #dbe4f5;
+    --divider: #b9c4da;
+
+    /* Brand icons */
+    --whatsapp: #1fa855;
+    --mail-blue: #0b4fd4;
+    --linkedin: #0a7fe3;
+    --facebook: #1877f2;
+
+    --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    /* Layout */
+    --gutter: clamp(16px, 4.2vw, 52px);
+    --page-max: 1160px;
+    --bleed: max(var(--gutter), calc((100% - var(--page-max)) / 2));
+}
+
+
+/* =====================================================
+   BASE
+===================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.logo-container{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Shared logo + name styles (header and footer) */
+.brand-logo {
+    width: 200px;
+    height: 40px;
+    flex-shrink: 0;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+.brand-parent {
+    margin-left: 15px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+
+/* =====================================================
+   SITE HEADER
+===================================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 90px;
+    padding-inline: var(--bleed);
+    background: #fff;
+    box-shadow: 0 1px 0 var(--panel-edge), 0 6px 18px rgba(6, 26, 69, 0.05);
+}
+
+/* Hamburger: hidden on desktop */
+.site-header .fa-bars {
+    display: none;
+    padding: 8px;
+    font-size: 1.6rem;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.header-nav {
+    margin-inline: auto;
+}
+
+.nav-trail {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.4rem, 3vw, 2.6rem);
+}
+
+.nav-list {
+    position: relative;
+    display: block;
+    padding-block: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    transition: color 0.2s ease;
+}
+
+.nav-list:hover {
+    color: var(--blue);
+}
+
+/* Active page underline */
+.nav-list[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    bottom: 0;
+    left: -6px;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: var(--blue);
+}
+
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: var(--amber);
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.header-cta:hover {
+    background: var(--amber-deep);
+}
+
+.menu-btn{
+    display: none;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero-stage {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(48px, 6vw, 70px) var(--bleed) clamp(72px, 9vw, 112px);
+    background: linear-gradient(105deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%);
+    color: #fff;
+}
+
+/* Curved white edge along the bottom of the hero */
+.hero-stage::after {
+    content: "";
+    position: absolute;
+    right: -10%;
+    bottom: -25px;
+    left: -10%;
+    z-index: 3;
+    height: clamp(36px, 6vw, 80px);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: var(--surface);
+}
+
+.hero-pitch {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+}
+
+.hero-title {
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+}
+
+.hero-brandname,
+.hero-promise {
+    display: block;
+}
+
+.hero-brandname {
+    font-size: clamp(2.5rem, 5.2vw, 4rem);
+}
+
+.hero-promise {
+    margin-top: 4px;
+    font-size: clamp(1.7rem, 4.1vw, 3.1rem);
+}
+
+.hero-promise-highlight {
+    color: var(--amber);
+}
+
+.hero-lede {
+    max-width: 30em;
+    margin-top: 22px;
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.hero-enroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 15px 30px;
+    border-radius: 999px;
+    background: var(--amber);
+    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 800;
+    transition: background 0.2s ease;
+}
+
+.hero-enroll:hover {
+    background: var(--amber-deep);
+}
+
+/* Photo sits on the right and fades into the navy */
+.hero-scene {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 62%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 40%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 40%);
+}
+
+.hero-scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+}
+
+
+/* =====================================================
+   PROGRAMS
+===================================================== */
+.track-picker,
+.internship-spotlight,
+.reach-out {
+    width: min(100% - 2 * var(--gutter), var(--page-max));
+    margin-inline: auto;
+}
+
+.track-picker {
+    padding-top: 22px;
+}
+
+.track-picker-intro {
+    text-align: center;
+}
+
+.tracks-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.tracks-title::before,
+.tracks-title::after {
+    content: "";
+    flex: 0 1 140px;
+    height: 1px;
+    background: var(--divider);
+}
+
+.track-picker-intro p {
+    margin-top: 6px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.track-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 22px;
+}
+
+.track-link {
+    position: relative;
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    align-items: center;
+    gap: 22px;
+    height: 100%;
+    padding: 22px 30px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 16px;
+    background: var(--panel);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-link:hover {
+    border-color: #b6c8ee;
+    box-shadow: 0 8px 22px rgba(26, 95, 224, 0.1);
+}
+
+.track-icon {
+    display: grid;
+    place-items: center;
+    font-size: 3.1rem;
+    line-height: 1;
+}
+
+.track-icon-data {
+    color: var(--blue);
+}
+
+.track-icon-web {
+    color: var(--indigo);
+}
+
+.track-summary {
+    display: block;
+}
+
+.track-name {
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.track-summary p {
+    margin-top: 4px;
+    font-size: 1.02rem;
+    font-weight: 500;
+}
+
+.track-go {
+    font-size: 1.7rem;
+    color: var(--indigo);
+}
+
+
+/* =====================================================
+   INTERNSHIP BANNER
+===================================================== */
+.internship-spotlight {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    align-items: center;
+    margin-top: 34px;
+    margin-bottom: 20px;
+    padding: 34px clamp(24px, 5vw, 58px);
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 100% 100%, rgba(40, 110, 230, 0.32) 0 14%, transparent 14.4%),
+        radial-gradient(circle at 100% 100%, rgba(40, 110, 230, 0.18) 0 24%, transparent 24.4%),
+        linear-gradient(110deg, var(--navy-950), var(--navy-900) 70%, #0a2f78);
+    color: #fff;
+}
+
+.spotlight-badge {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 18px;
+    border: 1.5px solid #fff;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.spotlight-title {
+    max-width: 16em;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+
+.spotlight-detail {
+    max-width: 30em;
+    margin-top: 14px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.spotlight-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    margin-block: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.spotlight-apply {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 52px;
+    border-radius: 999px;
+    background: var(--amber);
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 800;
+    transition: background 0.2s ease;
+}
+
+.spotlight-apply:hover {
+    background: var(--amber-deep);
+}
+
+
+/* =====================================================
+   COMMUNITY & CONTACT
+===================================================== */
+.reach-out {
+    padding-block: 28px 44px;
+}
+
+.reach-out-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.reach-out-item + .reach-out-item {
+    border-left: 1px solid var(--divider);
+}
+
+.reach-out-link {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 22px;
+    height: 100%;
+    padding: 14px clamp(16px, 3vw, 40px);
+}
+
+.reach-out-icon {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2.1rem;
+}
+
+.reach-out-icon-chat {
+    background: var(--whatsapp);
+}
+
+.reach-out-icon-mail {
+    background: linear-gradient(135deg, #1a6cf0, var(--mail-blue));
+    font-size: 1.8rem;
+}
+
+.reach-out-copy {
+    display: block;
+    font-size: 1.02rem;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.reach-out-heading {
+    display: block;
+    margin-bottom: 4px;
+    font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+    font-weight: 800;
+}
+
+.reach-out-email {
+    display: inline-block;
+    color: #4a5f8a;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    overflow-wrap: anywhere;
+}
+
+.reach-out-email:hover {
+    color: var(--blue);
+}
+
+.reach-out-go {
+    font-size: 1.6rem;
+    color: var(--indigo);
+}
+
+
+/* =====================================================
+   SITE FOOTER
+===================================================== */
+.site-footer {
+    padding: 28px var(--bleed) 18px;
+    background: linear-gradient(
+        to right,
+        #1b365e 0%,
+        #0b1b39 40%,
+        #020d27 100%
+    );
+    color: #fff;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr auto;
+    grid-template-areas: "identity trail socials";
+    align-items: start;
+    gap: 24px;
+}
+
+.footer-identity {
+    grid-area: identity;
+}
+
+.footer-identity .brand-lockup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.site-footer .brand-logo {
+    width: 200px;
+}
+
+.site-footer .brand-name {
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.site-footer .brand-parent {
+    color: #c9d6f2;
+}
+
+.footer-motto {
+    margin-top: 14px;
+    font-size: 1.02rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.footer-nav {
+    grid-area: trail;
+    margin-top: 6px;
+    padding-block: 8px;
+    border-inline: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.footer-trail {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px clamp(1.2rem, 3vw, 2.6rem);
+}
+
+.footer-trail a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.footer-trail a:hover {
+    color: var(--amber);
+}
+
+.footer-socials {
+    grid-area: socials;
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.footer-socials a {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+    transform: translateY(-2px);
+}
+
+.footer-socials li:nth-child(1) a {
+    background: var(--linkedin);
+}
+
+.footer-socials li:nth-child(2) a {
+    background: var(--facebook);
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: center;
+    gap: 8px 24px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.footer-copyright small {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   TABLET  (up to 899px)
+===================================================== */
+@media (max-width: 899px) {
+
+    /* ---------- Header ---------- */
+    .site-header {
+        min-height: 68px;
+        padding-left: 10px;
+    }
+
+    .brand-name {
+        font-size: 1.35rem;
+    }
+
+    .header-cta {
+        margin-left: auto;
+    }
+
+
+    /* ---------- Hero: image stacks under the text ---------- */
+    .hero-stage {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+    .hero-pitch {
+        max-width: none;
+    }
+
+    .hero-scene {
+        position: relative;
+        width: auto;
+        height: clamp(210px, 48vw, 340px);
+        margin: 28px calc(var(--bleed) * -1) 0;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 45%);
+        mask-image: linear-gradient(to bottom, transparent 0%, #000 45%);
+    }
+
+    .hero-stage::after {
+        height: clamp(28px, 6vw, 48px);
+    }
+
+    /* ---------- Footer: logo + socials on top, links below ---------- */
+    .footer-top {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "identity socials"
+            "trail    trail";
+    }
+
+    .footer-nav {
+        margin-top: 0;
+        border-inline: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
+        padding-top: 18px;
+    }
+
+    .footer-trail {
+        justify-content: flex-start;
+    }
+}
+
+
+/* =====================================================
+   MOBILE  (up to 767px)
+===================================================== */
+@media (max-width: 767px) {
+
+    .brand-logo{
+        width: 160px;
+        height: 36px
+    }
+
+    .track-list {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .track-link {
+        grid-template-columns: 64px 1fr auto;
+        gap: 16px;
+        padding: 18px 20px;
+    }
+
+    .track-icon {
+        font-size: 2.4rem;
+    }
+
+    .tracks-title::before,
+    .tracks-title::after {
+        flex-basis: 40px;
+    }
+
+    /* Banner stacks, divider moves above the button */
+    .internship-spotlight {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px 22px;
+        border-radius: 22px;
+    }
+
+    .spotlight-actions {
+        align-self: auto;
+        margin-block: 0;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-left: 0;
+    }
+
+    .spotlight-apply {
+        padding: 16px 40px;
+        font-size: 1.15rem;
+    }
+
+    /* Contact blocks stack */
+    .reach-out-list {
+        grid-template-columns: 1fr;
+    }
+
+    .reach-out-item + .reach-out-item {
+        border-top: 1px solid var(--divider);
+        border-left: 0;
+    }
+
+    .reach-out-link {
+        gap: 16px;
+        padding: 20px 4px;
+    }
+
+    .reach-out-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 1.7rem;
+    }
+
+    .footer-copyright {
+        flex-direction: column;
+    }
+
+    .header-cta{
+        display: none;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONES  (up to 599px)
+===================================================== */
+@media (max-width: 599px) {
+
+    /* Header keeps only logo, name and hamburger */
+    .header-cta {
+        display: none;
+    }
+
+    .site-header .fa-bars {
+        margin-left: auto;
+    }
+
+    .brand-parent {
+        font-size: 0.62rem;
+    }
+
+    .hero-enroll {
+        padding: 14px 24px;
+        font-size: 0.98rem;
+    }
+
+    .site-footer .brand-logo{
+        width: 140px;
+        height: 32px;
+    }
+
+    .site-footer .brand-parent{
+         margin-left: 10px;
+    }
+
+     .header-nav {
+        display: none;
+    }
+
+    .header-nav.active{
+        display:block;
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        right: 0;
+        background-color: #fff;
+    }
+
+    .nav-trail{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 10px;
+        gap: 10px;
+    }
+
+    .site-header .fa-bars{
+        display: block;
+    }
+
+    .menu-btn {
+        display: block;
+        border: none;
+        background: none;
+    }
+
+    .site-header{
+        display: flex;
+        justify-content: space-between
+    }
+}
+
+
+/* =====================================================
+   LARGE SCREENS  (1400px and up)
+===================================================== */
+@media (min-width: 1400px) {
+
+    :root {
+        --page-max: 1240px;
+    }
+}
