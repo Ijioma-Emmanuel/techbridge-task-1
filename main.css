@@ -1387,3 +1387,462 @@ img {
         align-items: flex-start;
     }
 }
+
+
+
+
+
+
+
+
+/*==========================
+   Internship Tasks Page
+===========================*/
+
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    width: min(100% - 2 * var(--gutter), var(--page-max));
+    margin: 24px auto 0;
+    padding: clamp(28px, 5vw, 60px);
+    border-radius: 26px;
+    background: linear-gradient(105deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%);
+    color: #fff;
+}
+
+.hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.hero .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #e6eefc;
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.hero .hero-badge i {
+    color: var(--blue);
+}
+
+.hero h1 {
+    margin-top: 16px;
+    font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--amber);
+}
+
+.hero .hero-content p {
+    max-width: 38em;
+    margin-top: 16px;
+    font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+    font-weight: 500;
+    line-height: 1.65;
+    color: #dfe8fb;
+}
+
+.hero .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: var(--amber);
+    color: var(--ink);
+    font-size: 0.98rem;
+    font-weight: 800;
+    transition: background 0.2s ease;
+}
+
+.hero .button:hover {
+    background: var(--amber-deep);
+}
+
+/* Laptop photo on the right, fading into the navy */
+.hero .hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 50%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+}
+
+.hero .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+}
+
+
+/* =====================================================
+   TASKS SECTION
+===================================================== */
+.tasks-section {
+    width: min(100% - 2 * var(--gutter), var(--page-max));
+    margin: 22px auto 0;
+    padding-bottom: 56px;
+}
+
+.tasks-section .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* =====================================================
+   TASK CARD (collapsed by default, expanded when [open])
+===================================================== */
+.task-card {
+    --badge-w: 48px;
+    --badge-gap: 14px;
+
+    padding: 10px 16px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.task-card[open] {
+    --badge-w: 58px;
+
+    padding: 14px 16px 16px;
+    background: var(--panel);
+}
+
+/* ---------- Header row ---------- */
+.task-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: var(--badge-gap);
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+}
+
+.task-header::-webkit-details-marker {
+    display: none;
+}
+
+/* Number and day stack into one navy tile */
+.task-header .task-number,
+.task-header .task-day {
+    grid-column: 1;
+    width: var(--badge-w);
+    background: var(--navy-900);
+    text-align: center;
+}
+
+.task-header .task-number {
+    grid-row: 1;
+    padding-top: 7px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.task-header .task-day {
+    grid-row: 2;
+    padding: 2px 0 7px;
+    border-radius: 0 0 10px 10px;
+    color: #c9d6f2;
+    font-size: 0.62rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.task-card[open] .task-header .task-number {
+    padding-top: 10px;
+    font-size: 1.3rem;
+}
+
+.task-card[open] .task-header .task-day {
+    padding-bottom: 9px;
+}
+
+.task-header h3 {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--ink);
+}
+
+.task-header:hover h3 {
+    color: var(--blue);
+}
+
+/* ---------- "Read More" + chevron ---------- */
+.task-header .read-more {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.task-header .read-more i {
+    font-size: 0.95rem;
+}
+
+.task-card[open] .read-more i {
+    transform: rotate(180deg);
+}
+
+
+.task-card:not([open]) .read-more::before {
+    content: "Coming Soon";
+    padding: 4px 11px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+  .task-card:not([open]) .ongoing-readmore::before {
+
+    content: "Ongoing";
+    padding: 4px 11px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+   }
+
+
+/* ---------- Expanded content ---------- */
+.task-details {
+    padding: 12px 0 0 calc(var(--badge-w) + var(--badge-gap));
+}
+
+.task-information {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.task-information .task-status,
+.task-information .task-level {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.task-information .task-status {
+    border: 1px solid var(--panel-edge);
+    background: #fff;
+}
+
+.task-information .task-status i {
+    color: var(--whatsapp);
+}
+
+.task-information .task-status.coming-soon i {
+    color: var(--ink-soft);
+}
+
+.task-information .task-level {
+    background: #dde8fc;
+}
+
+.task-information .task-level i {
+    color: var(--blue);
+}
+
+.task-details > p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink-soft);
+}
+
+
+/* =====================================================
+   TABLET  (up to 899px)
+===================================================== */
+@media (max-width: 899px) {
+
+    .hero .hero-content {
+        max-width: 58%;
+    }
+
+    .hero .hero-image {
+        width: 46%;
+    }
+}
+
+
+/* =====================================================
+   MOBILE  (up to 767px)
+===================================================== */
+@media (max-width: 767px) {
+
+    .hero {
+        border-radius: 22px;
+    }
+
+    .hero .hero-content {
+        max-width: none;
+    }
+
+    .hero .hero-image {
+        bottom: auto;
+        width: 62%;
+        height: 210px;
+        -webkit-mask-image:
+            linear-gradient(to right, transparent 0%, #000 45%),
+            linear-gradient(to bottom, #000 55%, transparent 100%);
+        -webkit-mask-composite: source-in;
+        mask-image:
+            linear-gradient(to right, transparent 0%, #000 45%),
+            linear-gradient(to bottom, #000 55%, transparent 100%);
+        mask-composite: intersect;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.9rem, 6vw, 2.6rem);
+    }
+
+    .task-header .read-more {
+        font-size: 0;
+    }
+
+    .task-header .read-more i {
+        font-size: 1rem;
+    }
+
+    .task-card:not([open]) .read-more::before {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONES  (up to 599px)
+===================================================== */
+@media (max-width: 599px) {
+
+    .hero {
+        padding: 22px 18px 26px;
+        border-radius: 18px;
+    }
+
+    .hero .hero-badge {
+        padding: 6px 12px;
+        font-size: 0.74rem;
+    }
+
+    .hero h1 {
+        margin-top: 14px;
+        font-size: 1.7rem;
+    }
+
+    .hero .button {
+        padding: 12px 22px;
+        font-size: 0.92rem;
+    }
+
+    .task-card {
+        --badge-w: 42px;
+        --badge-gap: 12px;
+
+        padding: 10px 12px;
+    }
+
+    .task-card[open] {
+        --badge-w: 50px;
+
+        padding: 12px 12px 14px;
+    }
+
+    .task-header h3 {
+        font-size: 0.92rem;
+    }
+
+    .task-card:not([open]) .read-more::before {
+        padding: 3px 8px;
+        font-size: 0.64rem;
+    }
+
+    .task-card:not([open]) .ongoing-readmore::before{
+        font-size: 0.7rem;
+    }
+
+    .task-header .read-more {
+        gap: 6px;
+    }
+
+    .task-details > p {
+        font-size: 0.86rem;
+    }
+}
+
+
+/* =====================================================
+   LARGE SCREENS  (1400px and up)
+===================================================== */
+@media (min-width: 1400px) {
+
+    .hero {
+        padding: 72px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero .hero-content p {
+        font-size: 1.15rem;
+    }
+
+    .task-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .task-details > p {
+        font-size: 1rem;
+    }
+}
