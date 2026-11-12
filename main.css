@@ -1700,6 +1700,53 @@ img {
 }
 
 
+/* =================================
+      INTERNSHIP CTA BANNER
+==================================== */
+
+.enrol-banner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 10px 16px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 12px;
+    background: var(--navy-900);
+    color: white;
+}
+
+
+.enrol-banner-copy{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.fa-rocket{
+    font-size: clamp(15px, 2rem, 36px);
+}
+
+.enrol-banner-link{
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 8px 12px;
+    background: var(--surface);
+    color: var(--blue);
+    font-weight: 700;
+}
+
+
+.enrol-banner-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-right: 16px;
+    border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+
 /* =====================================================
    TABLET  (up to 899px)
 ===================================================== */
@@ -1756,6 +1803,18 @@ img {
 
     .task-card:not([open]) .read-more::before {
         font-size: 0.7rem;
+    }
+
+    .enrol-banner-text p{
+        font-size: 14px;
+    }
+
+    #enrol-banner-title{
+        font-size: 18px;
+    }
+
+    .enrol-banner-link{
+        font-size: 14px;
     }
 }
 
@@ -1817,6 +1876,22 @@ img {
 
     .task-details > p {
         font-size: 0.86rem;
+    }
+
+    .enrol-banner-icon{
+        display: none;
+    }
+
+    .enrol-banner-text p{
+        font-size: 12px;
+    }
+
+    #enrol-banner-title{
+        font-size: 14px;
+    }
+
+    .enrol-banner-link{
+        font-size: 8px
     }
 }
 
