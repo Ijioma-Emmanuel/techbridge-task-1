@@ -1944,10 +1944,10 @@ img {
 }
 
 .program-label {
-    border: 1px solid var(--light-mint);
+    border: 1px;
     border-radius: 999px;
     padding: 6px 14px;
-    background: var(--programs-pill);
+    background: var(--amber);
     font-size: 14px;
     font-weight: 600;
 }
