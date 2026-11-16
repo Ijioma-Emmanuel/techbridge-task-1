@@ -1921,3 +1921,575 @@ img {
         font-size: 1rem;
     }
 }
+
+
+
+
+
+/*===============================
+     Roadmap Page
+=================================*/
+.techbridge-roadmap-page{
+    padding: 30px var(--bleed) 56px;
+}
+
+.roadmap-hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.program-label {
+    border: 1px solid var(--light-mint);
+    border-radius: 999px;
+    padding: 6px 14px;
+    background: var(--programs-pill);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.roadmap-header {
+    color: var(--heading-color);
+    font-size: 44px;
+    margin: 10px 0;
+}
+
+.roadmap-header-highlight {
+    color: var(--amber);
+}
+
+.roadmap-lede {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+}
+
+.track-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 25px;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: white;
+}
+
+.track-button {
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.track-selector .track-button.active {
+    background: var(--navy-900);
+    color: white;
+}
+
+
+#roadmap-track-info{
+    display: flex;
+    justify-content: space-between;
+    background: skyblue;
+    padding: 10px 20px;
+    border-radius: 12px;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+.track-info-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.track-info-container .fa-solid{
+    font-size: 32px;
+    border-right: 3px solid var(--navy-800);
+    padding-right: 30px;
+}
+
+.track-info-duration{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 3px solid var(--navy-800);
+    padding-left: 30px;
+}
+
+.track-info-duration .fa-solid{
+    font-size: 32px;
+}
+
+
+.roadmap-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+}
+
+/* Centre SVG */
+.roadmap-center {
+    width: 100%;
+    min-width: 0;
+}
+
+.roadmap-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Left and right card containers */
+.roadmap-left,
+.roadmap-right {
+    position: relative;
+    min-width: 0;
+}
+
+/* Generated task cards */
+.roadmap-layout .task-card {
+    position: absolute;
+    width: min(100%, 365px);
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+/* Left cards meet the left edge of the SVG */
+.roadmap-left .task-card {
+    right: 0;
+}
+
+/* Right cards meet the right edge of the SVG */
+.roadmap-right .task-card {
+    left: 0;
+}
+
+
+.back-to-top{
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+    margin: 25px auto;
+    padding: 6px;
+    border-radius: 5px;
+    background: white;
+    color: var(--navy-900)
+}
+
+.day-number-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.task-description{
+    margin-bottom: 10px;
+}
+
+
+.task-difficulty{
+    border: 1px solid var(--navy-900);
+    background: var(--navy-900);
+    padding: 4px 10px;
+    color: white;
+    border-radius: 999px;
+}
+
+
+
+
+/* =================================
+   LARGE SCREENS: 1400px and above
+================================= */
+
+.roadmap-layout {
+    max-width: 1600px;
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 300px) minmax(0, 1fr);
+}
+
+.roadmap-layout .task-card {
+    max-width: 400px;
+}
+
+/* Align cards with their SVG markers */
+
+/* Right side: Tasks 1, 3, 5, 7 */
+.roadmap-right .task-card:nth-child(1) { top: 7.37%; }
+.roadmap-right .task-card:nth-child(2) { top: 31.73%; }
+.roadmap-right .task-card:nth-child(3) { top: 56.09%; }
+.roadmap-right .task-card:nth-child(4) { top: 80.45%; }
+
+/* Left side: Tasks 2, 4, 6, 8 */
+.roadmap-left .task-card:nth-child(1) { top: 19.55%; }
+.roadmap-left .task-card:nth-child(2) { top: 43.91%; }
+.roadmap-left .task-card:nth-child(3) { top: 68.27%; }
+.roadmap-left .task-card:nth-child(4) { top: 92.63%; }
+
+
+/* =================================
+   MEDIUM DESKTOP: 900px - 1399px
+================================= */
+
+@media (min-width: 900px) and (max-width: 1399px) {
+
+    .roadmap-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 260px) minmax(0, 1fr);
+    }
+
+    .roadmap-layout .task-card {
+        max-width: 340px;
+    }
+
+    .roadmap-header {
+        font-size: 40px;
+    }
+
+    .back-to-top{
+        margin: 50px 350px 10px;
+    }
+
+}
+
+
+/* =================================
+   TABLETS: 768px - 899px
+================================= */
+
+@media (min-width: 768px) and (max-width: 899px) {
+
+     .roadmap-hero-section {
+        padding: 30px 15px;
+    }
+
+    .roadmap-header {
+        font-size: 32px;
+    }
+
+    .roadmap-lede {
+        font-size: 16px;
+    }
+
+    .track-selector {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .track-button {
+        flex: 1;
+        padding: 11px 10px;
+        font-size: 14px;
+    }
+
+    #roadmap-track-info {
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .track-info-container {
+        gap: 15px;
+    }
+
+    .track-info-container .fa-solid {
+        padding-right: 15px;
+    }
+
+    .track-info-duration .fa-solid{
+        font-size: 24px;
+    }
+
+    /* Change the roadmap into one column */
+
+    .roadmap-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .roadmap-left,
+    .roadmap-right {
+        display: contents;
+    }
+
+    .roadmap-center {
+        display: none;
+    }
+
+    .roadmap-layout .task-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        margin: 0 0 16px;
+        padding: 18px;
+    }
+
+    /* Restore numerical task order */
+
+    .roadmap-right .task-card:nth-child(1) { order: 1; }
+    .roadmap-left .task-card:nth-child(1) { order: 2; }
+
+    .roadmap-right .task-card:nth-child(2) { order: 3; }
+    .roadmap-left .task-card:nth-child(2) { order: 4; }
+
+    .roadmap-right .task-card:nth-child(3) { order: 5; }
+    .roadmap-left .task-card:nth-child(3) { order: 6; }
+
+    .roadmap-right .task-card:nth-child(4) { order: 7; }
+    .roadmap-left .task-card:nth-child(4) { order: 8; }
+
+    .back-to-top {
+        width: fit-content;
+        margin: 25px auto;
+    }
+
+}
+
+
+/* =================================
+   MOBILE: 600px - 767px
+================================= */
+
+@media (min-width: 600px) and (max-width: 767px) {
+
+    .roadmap-hero-section {
+        padding: 30px 15px;
+    }
+
+    .roadmap-header {
+        font-size: 32px;
+    }
+
+    .roadmap-lede {
+        font-size: 16px;
+    }
+
+    .track-selector {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .track-button {
+        flex: 1;
+        padding: 11px 10px;
+        font-size: 14px;
+    }
+
+    #roadmap-track-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .track-info-container {
+        gap: 15px;
+    }
+
+    .track-info-container .fa-solid {
+        padding-right: 15px;
+    }
+
+    .track-info-duration {
+        border-left: none;
+        border-top: 2px solid var(--navy-800);
+        padding: 15px 0 0;
+    }
+
+    /* Change the roadmap into one column */
+
+    .roadmap-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .roadmap-left,
+    .roadmap-right {
+        display: contents;
+    }
+
+    .roadmap-center {
+        display: none;
+    }
+
+    .roadmap-layout .task-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        margin: 0 0 16px;
+        padding: 18px;
+    }
+
+    /* Restore numerical task order */
+
+    .roadmap-right .task-card:nth-child(1) { order: 1; }
+    .roadmap-left .task-card:nth-child(1) { order: 2; }
+
+    .roadmap-right .task-card:nth-child(2) { order: 3; }
+    .roadmap-left .task-card:nth-child(2) { order: 4; }
+
+    .roadmap-right .task-card:nth-child(3) { order: 5; }
+    .roadmap-left .task-card:nth-child(3) { order: 6; }
+
+    .roadmap-right .task-card:nth-child(4) { order: 7; }
+    .roadmap-left .task-card:nth-child(4) { order: 8; }
+
+    .back-to-top {
+        width: fit-content;
+        margin: 25px auto;
+    }
+
+}
+
+
+/* =================================
+   SMALL PHONES: 599px and below
+================================= */
+
+@media (max-width: 599px) {
+
+    .techbridge-roadmap-page {
+        padding: 20px 15px 40px;
+    }
+
+    .roadmap-hero-section {
+        padding: 25px 5px;
+        gap: 10px;
+    }
+
+    .roadmap-header {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    .roadmap-lede {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .program-label {
+        font-size: 12px;
+    }
+
+    .track-selector {
+        width: 100%;
+        gap: 3px;
+        margin-top: 15px;
+    }
+
+    .track-button {
+        flex: 1;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    #roadmap-track-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .track-info-container {
+        gap: 12px;
+    }
+
+    .track-info-container .fa-solid {
+        font-size: 25px;
+        padding-right: 12px;
+    }
+
+    .track-info-duration {
+        border-left: none;
+        border-top: 2px solid var(--navy-800);
+        padding: 12px 0 0;
+        font-size: 14px;
+    }
+
+    .track-info-duration .fa-solid {
+        font-size: 24px;
+    }
+
+    /* Single-column task layout */
+
+    .roadmap-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .roadmap-left,
+    .roadmap-right {
+        display: contents;
+    }
+
+    .roadmap-center {
+        display: none;
+    }
+
+    .roadmap-layout .task-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        margin: 0 0 14px;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    /* Restore numerical task order */
+
+    .roadmap-right .task-card:nth-child(1) { order: 1; }
+    .roadmap-left .task-card:nth-child(1) { order: 2; }
+
+    .roadmap-right .task-card:nth-child(2) { order: 3; }
+    .roadmap-left .task-card:nth-child(2) { order: 4; }
+
+    .roadmap-right .task-card:nth-child(3) { order: 5; }
+    .roadmap-left .task-card:nth-child(3) { order: 6; }
+
+    .roadmap-right .task-card:nth-child(4) { order: 7; }
+    .roadmap-left .task-card:nth-child(4) { order: 8; }
+
+    .back-to-top {
+        width: fit-content;
+        margin: 20px auto;
+        padding: 8px 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+

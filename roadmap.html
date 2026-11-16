@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+     <!-- ============ WEBSITE HEADER ============ -->
+    <header class="site-header">
+
+        <div class="logo-container">
+
+            <img src="./techbridge-logo.png" alt="TechBridge Logo" class="brand-logo">
+            <span class="brand-text">
+                <span class="brand-parent">by Baselink Services Limited</span>
+            </span>
+        </div>    
+ 
+        <nav class="header-nav header-toggle" aria-label="Main">
+            <ul class="nav-trail">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./programs.html">Programs</a></li>
+                <li><a href="./internship.html">Internship</a></li>
+                <li><a href="./roadmap.html">Roadmap</a></li>
+                <li><a href="https://forms.gle/ZUnPYYG6onzdQqAy8" target="_blank" rel="noopener noreferrer">Community</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+ 
+        <a href="https://forms.gle/ZUnPYYG6onzdQqAy8" target="_blank" class="header-cta">
+            Apply Now
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+
+        <button class="menu-btn" aria-label="Open navigation menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+ 
+    </header>
+    
+
+<main class="techbridge-roadmap-page">
+
+    <!-- PAGE INTRODUCTION -->
+    <section class="roadmap-hero-section" id="roadmap-hero-section">
+
+        <span class="program-label">30-Day Internship Program</span>
+
+        <h1 class="roadmap-header">
+            Internship <span class="roadmap-header-highlight">Roadmap</span>
+        </h1>
+
+        <p class="roadmap-lede">
+            Choose a track and explore the 8 practical tasks
+            you'll complete during your 30-day internship.
+        </p>
+
+        <!-- JavaScript will handle track switching -->
+        <div class="track-selector">
+
+            <button class="track-button active" data-track="analytics">
+                <i class="fa-solid fa-chart-column"></i>
+
+                Data Analytics
+            </button>
+
+            <button class="track-button" data-track="web-development">
+                <i class="fa-solid fa-code"></i>
+                Web Development
+            </button>
+
+        </div>
+
+    </section>
+
+
+    
+<!-- ROADMAP SECTION -->
+<section class="roadmap-section">
+
+    <!-- TRACK INFORMATION -->
+    <div class="roadmap-track-info" id="roadmap-track-info">
+
+        <!-- JavaScript will populate this section -->
+        <div class="track-info-container">
+
+        <div class="track-info-icon" id="track-info-icon"></div>
+
+        <div class="track-info-content">
+            <h2 id="track-title"></h2>
+            <p id="track-description"></p>
+        </div>
+
+        </div>
+
+        <div class="track-info-duration">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span id="track-duration"></span>
+            <span>•</span>
+            <span id="track-task-count"></span>
+        </div>
+
+    </div>
+
+
+ 
+<!-- ROADMAP TIMELINE -->
+<div class="roadmap-timeline">
+
+    <div class="roadmap-layout">
+
+        <!-- LEFT TASK CARDS -->
+        <div class="roadmap-left" id="roadmap-left">
+            <!-- JavaScript generates even-numbered task cards here -->
+        </div>
+
+
+        <!-- CENTER ROAD -->
+        <div class="roadmap-center">
+
+            <svg
+                class="roadmap-svg"
+                id="roadmap-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 300 1560"
+                width="300"
+                height="1560"
+            >
+
+                <!-- Main road -->
+                <path
+                    d="
+                    M150 20
+                    C150 62 260 62 260 115
+                    C260 168 150 168 150 210
+                    C150 252 40 252 40 305
+                    C40 358 150 358 150 400
+                    C150 442 260 442 260 495
+                    C260 548 150 548 150 590
+                    C150 632 40 632 40 685
+                    C40 738 150 738 150 780
+                    C150 822 260 822 260 875
+                    C260 928 150 928 150 970
+                    C150 1012 40 1012 40 1065
+                    C40 1118 150 1118 150 1160
+                    C150 1202 260 1202 260 1255
+                    C260 1308 150 1308 150 1350
+                    C150 1392 40 1392 40 1445
+                    C40 1498 150 1498 150 1540
+                    "
+                    fill="none"
+                    stroke="#071B49"
+                    stroke-width="26"
+                    stroke-linecap="round"
+                />
+
+                <!-- Road centre line -->
+                <path
+                    d="
+                    M150 20
+                    C150 62 260 62 260 115
+                    C260 168 150 168 150 210
+                    C150 252 40 252 40 305
+                    C40 358 150 358 150 400
+                    C150 442 260 442 260 495
+                    C260 548 150 548 150 590
+                    C150 632 40 632 40 685
+                    C40 738 150 738 150 780
+                    C150 822 260 822 260 875
+                    C260 928 150 928 150 970
+                    C150 1012 40 1012 40 1065
+                    C40 1118 150 1118 150 1160
+                    C150 1202 260 1202 260 1255
+                    C260 1308 150 1308 150 1350
+                    C150 1392 40 1392 40 1445
+                    C40 1498 150 1498 150 1540
+                    "
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-dasharray="12 14"
+                />
+
+                <!-- JavaScript generates the numbered markers here -->
+                <g id="roadmap-markers"></g>
+
+            </svg>
+
+        </div>
+
+
+        <!-- RIGHT TASK CARDS -->
+        <div class="roadmap-right" id="roadmap-right">
+            <!-- JavaScript generates odd-numbered task cards here -->
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- ROADMAP COMPLETION -->
+    <div class="roadmap-completion" id="roadmap-completion">
+
+        <!-- JavaScript can populate this if needed -->
+
+    </div>
+
+</section>
+
+
+<div class="back-to-top"><a href="#roadmap-hero-section">Back to Top</a></div>
+
+
+              <!-- INTERNSHIP CALL TO ACTION -->
+  <!-- Internship Application Call to Action -->
+    <section class="internship-application-banner" id="internship-application">
+
+        <div class="internship-banner-message">
+
+            <h2>
+                Ready to start your
+                <span>TechBridge journey?</span>
+            </h2>
+
+            <p>
+                Apply now and be part of our 30-day internship program.
+            </p>
+
+        </div>
+
+        <a href="https://forms.gle/ZUnPYYG6onzdQqAy8" class="internship-application-link" target="_blank">
+            Apply Now
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+
+    </section>
+</main>
+
+
+
+<!-- ============ SITE FOOTER ============ -->
+    <footer class="site-footer">
+ 
+        <div class="footer-top">
+ 
+            <div class="footer-identity">
+                <a href="./index.html" class="brand-lockup" aria-label="TechBridge by Baselink Services Limited, home">
+                     <img src="./techbridge-logo.png" alt="TechBridge Logo" class="brand-logo">
+                    <span class="brand-text">
+                        <span class="brand-parent">by Baselink Services Limited</span>
+                    </span>
+                </a>
+                <p class="footer-motto">Bridging Learning to Real-World Experience</p>
+            </div>
+ 
+            <nav class="footer-nav" aria-label="Footer">
+                <ul class="footer-trail">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./programs.html">Programs</a></li>
+                    <li><a href="./internship.html">Internship</a></li>
+                    <li><a href="./roadmap.html">Roadmap</a></li>
+                    <li><a href="https://forms.gle/ZUnPYYG6onzdQqAy8" target="_blank" rel="noopener noreferrer">Community</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+ 
+            <ul class="footer-socials">
+                <li>
+                    <a href="https://www.linkedin.com/company/techbridge-services/ " target="_blank" rel="noopener" aria-label="TechBridge on LinkedIn">
+                        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/p/Baselink-Services-100066771475783/" target="_blank" rel="noopener" aria-label="TechBridge on Facebook">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+ 
+        </div>
+ 
+        <div class="footer-copyright">
+            <small>&copy; 2026 TechBridge by Baselink Services Limited. All rights reserved.</small>
+        </div>
+ 
+    </footer>
+ 
+</body>
+</html>
