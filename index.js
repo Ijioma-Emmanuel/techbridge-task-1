@@ -1,4 +1,3 @@
-
 const menuBtn = $('.menu-btn');
 const headerNav = $('.header-nav');
 
@@ -311,7 +310,3 @@ function displayTasks(tasks) {
 // DISPLAY DEFAULT TRACK
 displayTrackInfo(analyticsTrack);
 displayTasks(analyticsTasks);
-
-
-
-
